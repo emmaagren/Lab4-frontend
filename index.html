@@ -30,20 +30,46 @@
         </section>
 
         <section>
-    <h2>Skapa konto</h2>
+            <h2>Skapa konto</h2>
 
-    <form id="registerForm">
-        <label for="registerUsername">Användarnamn</label>
-        <input type="text" id="registerUsername" required>
+            <form id="registerForm">
+                <label for="registerUsername">Användarnamn</label>
+                <input type="text" id="registerUsername" required>
 
-        <label for="registerPassword">Lösenord</label>
-        <input type="password" id="registerPassword" required>
+                <label for="registerPassword">Lösenord</label>
+                <input type="password" id="registerPassword" required>
 
-        <button type="submit">Registrera dig</button>
-    </form>
+                <button type="submit">Registrera dig</button>
+            </form>
 
-    <p id="registerMessage" aria-live="polite"></p>
-</section>
+            <p id="registerMessage" aria-live="polite"></p>
+        </section>
+
+        <section id="notesSection" hidden>
+            <h2>Mina anteckningar</h2>
+
+            <h3>Skapa ny anteckning</h3>
+
+            <form id="noteForm">
+                <label for="noteTitle">Rubrik</label>
+                <input type="text" id="noteTitle" required>
+
+                <label for="noteContent">Innehåll</label>
+                <textarea id="noteContent" rows="4" required></textarea>
+
+                <button type="submit">Spara anteckning</button>
+            </form>
+
+            <p id="saveNoteMessage" aria-live="polite"></p>
+
+            <button id="loadNotesBtn" type="button">
+                Visa mina anteckningar
+            </button>
+
+            <ul id="notesList"></ul>
+
+            <p id="notesMessage" aria-live="polite"></p>
+        </section>
 
     </main>
     <script src="script.js"></script>
