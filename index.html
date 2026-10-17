@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 4 – Inloggning</title>
+    <title>Lab 4 - Inloggning</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -43,34 +44,6 @@
             </form>
 
             <p id="registerMessage" aria-live="polite"></p>
-        </section>
-
-        <section id="notesSection" hidden>
-            <h2>Mina anteckningar</h2>
-
-            <button id="logoutBtn" type="button">Logga ut</button>
-
-            <h3>Skapa ny anteckning</h3>
-
-            <form id="noteForm">
-                <label for="noteTitle">Rubrik</label>
-                <input type="text" id="noteTitle" required>
-
-                <label for="noteContent">Innehåll</label>
-                <textarea id="noteContent" rows="4" required></textarea>
-
-                <button type="submit">Spara anteckning</button>
-            </form>
-
-            <p id="saveNoteMessage" aria-live="polite"></p>
-
-            <button id="loadNotesBtn" type="button">
-                Visa mina anteckningar
-            </button>
-
-            <ul id="notesList"></ul>
-
-            <p id="notesMessage" aria-live="polite"></p>
         </section>
 
     </main>
