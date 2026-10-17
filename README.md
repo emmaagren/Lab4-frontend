@@ -96,9 +96,15 @@ Det har även testats att användare utan giltig JWT-token inte kan visa den sky
 
 ## Publicering
 
-Information om den publicerade frontend-adressen läggs till efter driftsättning.
+Frontend-webbplatsen är publicerad på Netlify.
+
+Webbadress: https://lab4-frontend.netlify.app/
+
+Webbplatsen kommunicerar med backend-API som är publicerat på Render.
 
 Backend-API: https://lab4-backend-l388.onrender.com
+
+Registrering, inloggning, JWT-autentisering samt skapande och hämtning av anteckningar har testats efter publicering.
 
 ## Kurs
 
