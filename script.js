@@ -193,3 +193,61 @@ noteForm.addEventListener("submit", async (event) => {
         console.error(error);
     }
 });
+
+// Hämtar utloggningsknappen
+const logoutBtn = document.querySelector("#logoutBtn");
+
+// Hanterar utloggning
+logoutBtn.addEventListener("click", () => {
+
+    // Tar bort användarens JWT-token
+    sessionStorage.removeItem("token");
+
+    // Döljer anteckningssektionen
+    document.querySelector("#notesSection").hidden = true;
+
+    // Rensar anteckningar och formulär
+    notesList.innerHTML = "";
+    noteForm.reset();
+    loginForm.reset();
+
+    // Visar meddelande
+    message.textContent = "Du har loggat ut!";
+    notesMessage.textContent = "";
+    saveNoteMessage.textContent = "";
+});
+
+// Kontrollerar om användaren redan är inloggad
+async function checkLoginStatus() {
+    const token = sessionStorage.getItem("token");
+
+    if (!token) {
+        return;
+    }
+
+    try {
+        // Kontrollerar att JWT-token fortfarande är giltig
+        const response = await fetch(`${apiUrl}/api/notes`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            // Tar bort token om den inte längre är giltig
+            sessionStorage.removeItem("token");
+            return;
+        }
+
+        // Visar anteckningssektionen
+        document.querySelector("#notesSection").hidden = false;
+        message.textContent = "Du är inloggad!";
+
+    } catch (error) {
+        console.error("Kunde inte kontrollera inloggningen:", error);
+    }
+}
+
+// Kontrollerar inloggningen när sidan öppnas
+checkLoginStatus();
